@@ -1,6 +1,6 @@
 package gr.codehub.jpa.model;
 
 
-public class Employee {
+public class Employee1 {
     
 }
