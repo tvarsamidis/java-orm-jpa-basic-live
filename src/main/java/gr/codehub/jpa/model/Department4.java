@@ -1,39 +1,35 @@
 package gr.codehub.jpa.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "employees1")
+@Table(name = "departments4")
 @Data
 @NoArgsConstructor
 @ToString
-public class Employee1 implements Serializable {
-
+public class Department4 implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
+    @ManyToMany(mappedBy = "departments")
+    private List<Employee4> employees;
 
-    @Column(name = "email", unique = true)
-    private String email;
-
-    public Employee1(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+    public Department4(String name) {
+        this.name = name;
     }
 }

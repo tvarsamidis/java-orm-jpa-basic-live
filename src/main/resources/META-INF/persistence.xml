@@ -1,7 +1,11 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
     <persistence-unit name="CompanyPU">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>Department3</class>
+        <class>Department4</class>
         <class>Employee1</class>
+        <class>Employee3</class>
+        <class>Employee4</class>
         <properties>
 
             <!--  H2 --> <!--
@@ -16,7 +20,7 @@
             <!-- MySQL -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url"
-                                  value="jdbc:mysql://localhost:3306/company29?useTimezone=true&amp;serverTimezone=UTC&amp;createDatabaseIfNotExist=true"/>
+                                  value="jdbc:mysql://localhost:3306/testdb?useTimezone=true&amp;serverTimezone=UTC&amp;createDatabaseIfNotExist=true"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="root"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" ></property>

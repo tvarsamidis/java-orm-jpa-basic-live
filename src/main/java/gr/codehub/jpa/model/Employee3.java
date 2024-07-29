@@ -6,18 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
-@Table(name = "employees1")
+@Table(name = "employees3")
 @Data
 @NoArgsConstructor
-@ToString
-public class Employee1 implements Serializable {
-
+public class Employee3 implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,9 +30,22 @@ public class Employee1 implements Serializable {
     @Column(name = "email", unique = true)
     private String email;
 
-    public Employee1(String firstName, String lastName, String email) {
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department3 department;
+
+    public Employee3(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
+
+    // Implement here to avoid recursion of @ToString
+    @Override
+    public String toString() {
+        return "Employee4{" + "id=" + id + ", firstName=" + firstName + ", lastName=" 
+                + lastName + ", email=" + email + ", department=" + department.getName() + '}';
+    }
+   
+    
 }
