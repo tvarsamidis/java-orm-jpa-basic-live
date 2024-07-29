@@ -14,9 +14,14 @@ public class Main1 {
         
         entityManager.getTransaction().begin();
         
-        Employee1 employee = new Employee1("John", "Doe", "john.doe@example.com");
-        employee.setId(1002L);
+        Employee1 employee = new Employee1("John", "Doe", Util.email("john.doe"));
+
+        System.out.println("Employee before persist: " + employee);
+        
         entityManager.persist(employee);
+
+        System.out.println("Employee after persist: " + employee);
+
         
         entityManager.getTransaction().commit();
         
